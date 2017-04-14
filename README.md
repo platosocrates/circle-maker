@@ -1,11 +1,12 @@
-# Circle maker
-
-- Approx. completion time: **1 hour**
-- Deliverables: **1 HTML file, 1 CSS file, 1 JS file**
-
+---
+summary: 'Use Javascript keyboard events so that when a key is pressed a circle shows up randomly on the screen.'
+time: '1 hour'
+deliverables: '1 HTML file, 1 CSS file, 1 JS file'
 ---
 
-**Use Javascript keyboard events so that when a key is pressed a circle shows up randomly on the screen.**
+# Circle maker
+
+## Overview
 
 - *Fork this repository.*
 - Write an event listener in Javascript that listens for `keydown`
@@ -26,9 +27,8 @@ Create the interaction shown in the linked video.
 
 ## Hand in
 
-Drop this folder into your Markbot application. Make sure to fix all the errors. And submit to Canvas using Markbot.
+Drop this folder into your Markbot application. Make sure to fix all the errors. And submit online.
 
----
 ---
 
 ## Optional challenges

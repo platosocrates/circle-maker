@@ -1,40 +1,65 @@
-repo: "circle-maker"
-canvasCourse: "467503"
-canvasAssignment: "4202554"
+repo: 'circle-maker'
 
 naming: true
-commits: 2
+restrictFileTypes: true
+liveWebsite: true
+
+git:
+  numCommits: 2
+  allCommitted: true
+  allSynced: true
 
 html:
-  - path: "index.html"
+  - path: 'index.html'
     valid: true
     bestPractices: true
     has:
-      - "script"
-    search:
-      - "jquery"
+      - 'script[src*="jquery"]'
+      - 'script[src="js/main.js"]'
+    hasNot:
+      - ['body :not(script)', 'The `<script>` tag should be the only tag inside `<body>` — no other HTML is needed']
 
 css:
-  - path: "css/main.css"
+  - path: 'css/main.css'
     valid: true
     bestPractices: true
     has:
-      - ['html', 'box-sizing', 'border-box']
+      - ['html', 'box-sizing', 'border-box', 'The `border-box` layout model is needed for this assignment—use the `borderbox` snippet']
+      - ['*', 'box-sizing', 'inherit', 'The `border-box` layout model is needed for this assignment—use the `borderbox` snippet']
       - ['.ball', 'position', 'absolute']
       - ['.ball', 'width', '100px']
       - ['.ball', 'height', '100px']
       - ['.ball', 'border-radius', '50px']
 
 js:
-  - path: "js/main.js"
+  - path: 'js/main.js'
     valid: true
     bestPractices: true
     search:
       - "\\.on\\('keydown', function"
       - "\\.css\\('left', "
       - "\\.css\\('top', "
-      - "Math\\.random\\(\\)"
+      - 'Math\.random\(\)'
       - "\\$\\('body'\\)"
       - "\\$\\('html'\\)"
       - "\\$\\('<div>'\\)"
-      - "\\.append\\("
+      - '\.append\('
+
+functionality:
+  - path: 'index.html'
+    tests:
+      - |
+        let ball, ball2;
+
+        document.querySelector('html').dispatchEvent(ev('keydown'));
+        ball = $('.ball');
+
+        if (!ball) fail('A ball isn’t added to the screen when a key is pressed');
+
+        document.querySelector('html').dispatchEvent(ev('keydown'));
+        ball2 = $('.ball:last-child');
+
+        if (!ball2) fail('A second ball isn’t added to the screen when a key is pressed again');
+        if (css(ball).left == css(ball2).left) fail('The location of the balls isn’t randomized');
+
+        pass();
