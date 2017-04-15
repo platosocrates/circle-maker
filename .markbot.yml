@@ -51,12 +51,12 @@ functionality:
       - |
         let ball, ball2;
 
-        document.querySelector('html').dispatchEvent(ev('keydown'));
+        $('html').dispatchEvent(ev('keydown'));
         ball = $('.ball');
 
         if (!ball) fail('A ball isn’t added to the screen when a key is pressed');
 
-        document.querySelector('html').dispatchEvent(ev('keydown'));
+        $('html').dispatchEvent(ev('keydown'));
         ball2 = $('.ball:last-child');
 
         if (!ball2) fail('A second ball isn’t added to the screen when a key is pressed again');
